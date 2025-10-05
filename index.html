@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RT 03 RW 04 Depok - Lingkungan Hijau Bersih</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --secondary: #66bb6a;
+            --accent: #ff9800;
+            --light: #f1f8e9;
+            --dark: #1b5e20;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 30px;
+        }
+        
+        .site-title h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .site-title p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--dark);
+            padding: 0.8rem 0;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        .nav-menu li {
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 2rem 0;
+            min-height: 70vh;
+        }
+        
+        .section {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            font-size: 1.5rem;
+        }
+        
+        /* Cards */
+        .card {
+            background-color: var(--gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card-title {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--gray);
+        }
+        
+        tr:hover {
+            background-color: #e8f5e9;
+        }
+        
+        /* Contact Form */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+            }
+            
+            .nav-menu a {
+                padding: 12px 15px;
+                border-radius: 0;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Edit Mode */
+        .edit-mode {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .edit-mode:hover {
+            transform: scale(1.1);
+            background-color: #e68900;
+        }
+        
+        .editable {
+            position: relative;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .editable:hover {
+            background-color: rgba(255, 152, 0, 0.1);
+        }
+        
+        .edit-controls {
+            display: none;
+            position: absolute;
+            top: -30px;
+            right: 5px;
+            background-color: var(--dark);
+            border-radius: 4px;
+            padding: 5px;
+            z-index: 10;
+        }
+        
+        .editable:hover .edit-controls {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .edit-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .edit-btn:hover {
+            background-color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="site-title">
+                    <h1>RT 03 RW 04</h1>
+                    <p>Kelurahan Depok - Lingkungan Hijau Bersih</p>
+                </div>
+            </div>
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-city"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-section="tentang"><i class="fas fa-users"></i> Tentang Kami</a></li>
+                <li><a href="#" class="nav-link" data-section="kegiatan"><i class="fas fa-calendar-alt"></i> Laporan Kegiatan</a></li>
+                <li><a href="#" class="nav-link" data-section="kas"><i class="fas fa-money-bill-wave"></i> Laporan Kas</a></li>
+                <li><a href="#" class="nav-link" data-section="prelek"><i class="fas fa-clipboard-list"></i> Laporan Prelek</a></li>
+                <li><a href="#" class="nav-link" data-section="news"><i class="fas fa-newspaper"></i> What's New</a></li>
+                <li><a href="#" class="nav-link" data-section="kontak"><i class="fas fa-envelope"></i> Hubungi Kami</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="content container">
+        <!-- Tentang Kami Section -->
+        <section id="tentang" class="section active">
+            <h2 class="section-title"><i class="fas fa-users"></i> Pengurus RT 03 RW 04</h2>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-user-tie"></i> Ketua RT</h3>
+                <div class="editable" data-field="ketua-rt">
+                    <p><strong>Nama:</strong> Budi Santoso</p>
+                    <p><strong>Periode:</strong> 2023 - 2026</p>
+                    <p><strong>Kontak:</strong> 0812-3456-7890</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('ketua-rt')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-user-friends"></i> Sekretaris</h3>
+                <div class="editable" data-field="sekretaris">
+                    <p><strong>Nama:</strong> Siti Nurhaliza</p>
+                    <p><strong>Periode:</strong> 2023 - 2026</p>
+                    <p><strong>Kontak:</strong> 0856-7890-1234</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('sekretaris')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-calculator"></i> Bendahara</h3>
+                <div class="editable" data-field="bendahara">
+                    <p><strong>Nama:</strong> Ahmad Fauzi</p>
+                    <p><strong>Periode:</strong> 2023 - 2026</p>
+                    <p><strong>Kontak:</strong> 0878-9012-3456</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('bendahara')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-users"></i> Anggota</h3>
+                <div class="editable" data-field="anggota">
+                    <p>1. Dwi Handayani</p>
+                    <p>2. Eko Prasetyo</p>
+                    <p>3. Fitriani</p>
+                    <p>4. Gunawan Wijaya</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('anggota')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Laporan Kegiatan Section -->
+        <section id="kegiatan" class="section">
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Laporan Kegiatan</h2>
+            
+            <div class="card">
+                <div class="card-date">15 Juli 2023</div>
+                <h3 class="card-title"><i class="fas fa-tree"></i> Penanaman Pohon Penghijauan</h3>
+                <div class="editable" data-field="kegiatan-1">
+                    <p>Kegiatan penanaman 100 pohon di area taman RT 03 bekerja sama dengan Dinas Lingkungan Hidup Kota Depok. Diikuti oleh 50 warga.</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('kegiatan-1')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-date">5 Agustus 2023</div>
+                <h3 class="card-title"><i class="fas fa-broom"></i> Kerja Bakti Bersih Lingkungan</h3>
+                <div class="editable" data-field="kegiatan-2">
+                    <p>Kerja bakti membersihkan selokan dan sampah di sepanjang jalan RT 03. Diikuti oleh 80 warga.</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('kegiatan-2')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-date">20 Agustus 2023</div>
+                <h3 class="card-title"><i class="fas fa-recycle"></i> Sosialisasi Bank Sampah</h3>
+                <div class="editable" data-field="kegiatan-3">
+                    <p>Sosialisasi program bank sampah untuk mengurangi limbah plastik dan meningkatkan kesadaran lingkungan.</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('kegiatan-3')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-date">10 September 2023</div>
+                <h3 class="card-title"><i class="fas fa-seedling"></i> Pembuatan Taman Vertikal</h3>
+                <div class="editable" data-field="kegiatan-4">
+                    <p>Pembuatan taman vertikal di dinding balai warga menggunakan tanaman hidroponik untuk penghijauan ruang terbatas.</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('kegiatan-4')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Laporan Kas Section -->
+        <section id="kas" class="section">
+            <h2 class="section-title"><i class="fas fa-money-bill-wave"></i> Laporan Kas RT</h2>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-info-circle"></i> Informasi Kas</h3>
+                <div class="editable" data-field="info-kas">
+                    <p><strong>Periode:</strong> Januari - Juni 2023</p>
+                    <p><strong>Sumber Dana:</strong> Iuran Warga, Swadaya, dan Bantuan Pemerintah</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('info-kas')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Uraian</th>
+                            <th>Pemasukan (Rp)</th>
+                            <th>Pengeluaran (Rp)</th>
+                            <th>Saldo (Rp)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Saldo Awal</td>
+                            <td>5.000.000</td>
+                            <td>-</td>
+                            <td>5.000.000</td>
+                        </tr>
+                        <tr>
+                            <td>Iuran Warga</td>
+                            <td>12.000.000</td>
+                            <td>-</td>
+                            <td>17.000.000</td>
+                        </tr>
+                        <tr>
+                            <td>Bantuan Pemerintah</td>
+                            <td>7.500.000</td>
+                            <td>-</td>
+                            <td>24.500.000</td>
+                        </tr>
+                        <tr>
+                            <td>Kegiatan Penanaman Pohon</td>
+                            <td>-</td>
+                            <td>3.500.000</td>
+                            <td>21.000.000</td>
+                        </tr>
+                        <tr>
+                            <td>Pemeliharaan Taman</td>
+                            <td>-</td>
+                            <td>1.200.000</td>
+                            <td>19.800.000</td>
+                        </tr>
+                        <tr>
+                            <td>Administrasi RT</td>
+                            <td>-</td>
+                            <td>800.000</td>
+                            <td>19.000.000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>24.500.000</strong></td>
+                            <td><strong>5.500.000</strong></td>
+                            <td><strong>19.000.000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- Laporan Prelek Section -->
+        <section id="prelek" class="section">
+            <h2 class="section-title"><i class="fas fa-clipboard-list"></i> Laporan Prelek</h2>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-info-circle"></i> Informasi Prelek</h3>
+                <div class="editable" data-field="info-prelek">
+                    <p><strong>Periode:</strong> Januari - Juni 2023</p>
+                    <p><strong>Keterangan:</strong> Prelek adalah iuran sukarela warga untuk kegiatan sosial dan lingkungan</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('info-prelek')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bulan</th>
+                            <th>Jumlah KK</th>
+                            <th>Penerimaan (Rp)</th>
+                            <th>Penggunaan (Rp)</th>
+                            <th>Saldo (Rp)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Januari</td>
+                            <td>85</td>
+                            <td>1.700.000</td>
+                            <td>500.000</td>
+                            <td>1.200.000</td>
+                        </tr>
+                        <tr>
+                            <td>Februari</td>
+                            <td>87</td>
+                            <td>1.740.000</td>
+                            <td>300.000</td>
+                            <td>2.640.000</td>
+                        </tr>
+                        <tr>
+                            <td>Maret</td>
+                            <td>90</td>
+                            <td>1.800.000</td>
+                            <td>1.000.000</td>
+                            <td>3.440.000</td>
+                        </tr>
+                        <tr>
+                            <td>April</td>
+                            <td>88</td>
+                            <td>1.760.000</td>
+                            <td>700.000</td>
+                            <td>4.500.000</td>
+                        </tr>
+                        <tr>
+                            <td>Mei</td>
+                            <td>92</td>
+                            <td>1.840.000</td>
+                            <td>1.200.000</td>
+                            <td>5.140.000</td>
+                        </tr>
+                        <tr>
+                            <td>Juni</td>
+                            <td>95</td>
+                            <td>1.900.000</td>
+                            <td>800.000</td>
+                            <td>6.240.000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>537</strong></td>
+                            <td><strong>10.740.000</strong></td>
+                            <td><strong>4.500.000</strong></td>
+                            <td><strong>6.240.000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- What's New Section -->
+        <section id="news" class="section">
+            <h2 class="section-title"><i class="fas fa-newspaper"></i> What's New</h2>
+            
+            <div class="card">
+                <div class="card-date">25 September 2023</div>
+                <h3 class="card-title"><i class="fas fa-star"></i> Penghargaan Lingkungan Tingkat Kota</h3>
+                <div class="editable" data-field="news-1">
+                    <p>RT 03 RW 04 mendapatkan penghargaan sebagai "Lingkungan Terbaik" tingkat Kota Depok dalam rangka Hari Lingkungan Hidup Sedunia.</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('news-1')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-date">10 September 2023</div>
+                <h3 class="card-title"><i class="fas fa-hand-holding-heart"></i> Bantuan untuk Warga Terdampak Banjir</h3>
+                <div class="editable" data-field="news-2">
+                    <p>Penggalangan dana untuk membantu 5 KK warga yang terdampak banjir di ujung RT. Terkumpul dana sebesar Rp 7.500.000.</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('news-2')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-date">1 Agustus 2023</div>
+                <h3 class="card-title"><i class="fas fa-solar-panel"></i> Program Panel Surya untuk Balai Warga</h3>
+                <div class="editable" data-field="news-3">
+                    <p>Instalasi panel surya di balai warga untuk mengurangi tagihan listrik dan mendukung energi terbarukan.</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('news-3')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Hubungi Kami Section -->
+        <section id="kontak" class="section">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Hubungi Kami</h2>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-map-marker-alt"></i> Alamat</h3>
+                <div class="editable" data-field="alamat">
+                    <p>Kantor RT 03 RW 04<br>
+                    Jl. Hijau Lestari No. 15<br>
+                    Kelurahan Depok, Kecamatan Pancoran Mas<br>
+                    Kota Depok, Jawa Barat 16436</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('alamat')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-phone-alt"></i> Kontak</h3>
+                <div class="editable" data-field="kontak">
+                    <p><strong>Telepon:</strong> (021) 1234-5678</p>
+                    <p><strong>WhatsApp:</strong> 0812-3456-7890</p>
+                    <p><strong>Email:</strong> rt03rw04depok@gmail.com</p>
+                    <div class="edit-controls">
+                        <button class="edit-btn" onclick="editField('kontak')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-paper-plane"></i> Kirim Pesan</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subjek</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2023 RT 03 RW 04 Depok. Hak Cipta Dilindungi.</p>
+            <p>Dibuat dengan <i class="fas fa-heart" style="color: #e53935;"></i> untuk Lingkungan yang Lebih Baik</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Edit Mode Button -->
+    <button class="edit-mode" id="editModeBtn" onclick="toggleEditMode()">
+        <i class="fas fa-edit"></i>
+    </button>
+    
+    <script>
+        // Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and sections
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const sectionId = this.getAttribute('data-section');
+                    document.getElementById(sectionId).classList.add('active');
+                });
+            });
+            
+            // Contact form
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would normally send the data to a server
+                // For this example, we'll just show an alert
+                alert(`Terima kasih ${name}! Pesan Anda telah terkirim.\n\nKami akan segera merespons melalui email: ${email}`);
+                
+                // Reset form
+                contactForm.reset();
+            });
+        });
+        
+        // Edit Mode
+        let editMode = false;
+        
+        function toggleEditMode() {
+            editMode = !editMode;
+            const editBtn = document.getElementById('editModeBtn');
+            
+            if (editMode) {
+                editBtn.style.backgroundColor = '#e53935';
+                editBtn.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.cursor = 'text';
+            } else {
+                editBtn.style.backgroundColor = 'var(--accent)';
+                editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+                document.body.style.cursor = 'default';
+            }
+        }
+        
+        function editField(fieldId) {
+            if (!editMode) return;
+            
+            const field = document.querySelector(`[data-field="${fieldId}"]`);
+            const currentContent = field.innerHTML;
+            
+            // Create a textarea for editing
+            const textarea = document.createElement('textarea');
+            textarea.value = currentContent.replace(/<[^>]*>/g, ''); // Strip HTML tags
+            textarea.style.width = '100%';
+            textarea.style.minHeight = '100px';
+            textarea.style.padding = '10px';
+            textarea.style.marginBottom = '10px';
+            
+            // Create save button
+            const saveBtn = document.createElement('button');
+            saveBtn.textContent = 'Simpan';
+            saveBtn.style.marginRight = '10px';
+            
+            // Create cancel button
+            const cancelBtn = document.createElement('button');
+            cancelBtn.textContent = 'Batal';
+            cancelBtn.style.backgroundColor = '#757575';
+            
+            // Replace content with textarea
+            field.innerHTML = '';
+            field.appendChild(textarea);
+            field.appendChild(saveBtn);
+            field.appendChild(cancelBtn);
+            
+            // Focus on textarea
+            textarea.focus();
+            
+            // Save button click
+            saveBtn.addEventListener('click', function() {
+                const newContent = textarea.value;
+                field.innerHTML = newContent;
+                
+                // Add edit controls back
+                const editControls = document.createElement('div');
+                editControls.className = 'edit-controls';
+                editControls.innerHTML = `
+                    <button class="edit-btn" onclick="editField('${fieldId}')"><i class="fas fa-edit"></i></button>
+                `;
+                field.appendChild(editControls);
+            });
+            
+            // Cancel button click
+            cancelBtn.addEventListener('click', function() {
+                field.innerHTML = currentContent;
+            });
+        }
+    </script>
+</body>
+</html>
